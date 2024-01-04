@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO - COMPLETE THIS
+
 
 @Component
 public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao

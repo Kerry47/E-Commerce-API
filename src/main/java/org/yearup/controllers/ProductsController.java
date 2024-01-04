@@ -63,7 +63,7 @@ public class ProductsController
         }
     }
     // TODO - Bug Fix 2
-    @PostMapping()
+    @PostMapping("/product")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Product addProduct(@RequestBody Product product)
     {

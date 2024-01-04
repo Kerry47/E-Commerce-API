@@ -12,7 +12,7 @@ import org.yearup.models.Product;
 
 import java.util.List;
 
-// TODO - COMPLETE THIS
+
 
 // add the annotations to make this a REST controller
 @RestController
