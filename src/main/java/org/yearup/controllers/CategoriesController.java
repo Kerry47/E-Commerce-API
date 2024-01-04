@@ -1,6 +1,7 @@
 package org.yearup.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.yearup.data.CategoryDao;
@@ -43,10 +44,12 @@ public class CategoriesController
     }
 
     // add the appropriate annotation for a get action
+    @GetMapping("{id}")
     public Category getById(@PathVariable int id)
     {
         // get the category by id
-        return null;
+        Category category = categoryDao.getById(id);
+        return category;
     }
 
     // the url to return all products in category 1 would look like this
@@ -55,11 +58,13 @@ public class CategoriesController
     public List<Product> getProductsById(@PathVariable int categoryId)
     {
         // get a list of product by categoryId
-        return null;
+        return productDao.listByCategoryId(categoryId);
     }
 
     // add annotation to call this method for a POST action
     // add annotation to ensure that only an ADMIN can call this function
+    @PostMapping
+    @PreAuthorize("hasRole(ADMIN)")
     public Category addCategory(@RequestBody Category category)
     {
         // insert the category
