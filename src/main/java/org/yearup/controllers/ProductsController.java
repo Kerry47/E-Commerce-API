@@ -63,7 +63,7 @@ public class ProductsController
         }
     }
     // TODO - Bug Fix 2
-    @PostMapping("/product")
+    @PostMapping("")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Product addProduct(@RequestBody Product product)
     {
@@ -83,7 +83,7 @@ public class ProductsController
     {
         try
         {
-            productDao.create(product);
+            productDao.update(id, product);
         }
         catch(Exception ex)
         {
